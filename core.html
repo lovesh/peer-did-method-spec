@@ -92,6 +92,10 @@ numbasis = 64*hex
         <li>Calculate the SHA256 [[!RFC4634]] hash of the bytes of the <a>stored variant</a> of the <a>genesis
             version</a> of the DID doc, and make this value the new DID's <a>numeric basis</a>.
         </li>
+        <li>
+            Before hashing the DID doc needs to be serialized. Since the DID doc is in JSON format, we need to canonicalize the DID doc
+            before we can hash it. We use the <a href="https://tools.ietf.org/html/draft-rundgren-json-canonicalization-scheme-06s">JSON Canonicalization Scheme</a>.  
+        </li>
     </ul>
     <p>By basing the numeric value of the DID on the <a>genesis version</a> of the DID doc, the DID can begin its
         lifecycle with any number of keys and endpoints, and when the doc is signed or auth-encrypted by one
